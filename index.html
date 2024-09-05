@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-image: url('https://youthincmag.com/wp-content/uploads/2018/12/event-management.jpg');
+      background-size: cover;
+    }
+
+    .container {
+      width: 400px;
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .alekhya {
+      border-color: blue;
+      border-width: 2px;
+      border-radius: 5px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    input {
+      border-radius: 3px;
+      font-size: 14px;
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+    }
+
+    button {
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+      font-size: 14px;
+    }
+
+    .error {
+      color: red;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div ng-controller="SignUpController" class="container" ng-App="myApp">
+    <h1>Sign Up</h1>
+
+    <form ng-submit="submitForm()" name="signupForm" method="post" action="signupdb.php" novalidate>
+      <div class="alekhya">
+        <div class="form-group" ng-class="{ 'has-error': signupForm.username.$invalid }">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" ng-model="username" required>
+<!--          <span ng-show="" class="error1">{{error1}}</span>-->
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': signupForm.email.$invalid }">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" ng-model="email" required>
+          <span ng-show="signupForm.email.$error.required" class="error">Email is required</span>
+          <span ng-show="signupForm.email.$error.email" class="error">Invalid email format</span>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': signupForm.password.$invalid }">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" ng-model="password" required>
+          <span ng-show="" class="error">{{error1}}</span>
+        </div>
+
+        <button type="submit" ng-click="submitForm()">Sign Up</button>
+      </div>
+    </form>
+
+    <p>Already have an account? <a href="signin.php">Sign In</a></p>
+        
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1"></script>
+  <script src='signup.js'></script>
+</body>
+</html>

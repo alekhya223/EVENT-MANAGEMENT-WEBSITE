@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Planner - Choose Venue</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.venue {
+    width: 30%;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.venue:hover {
+    transform: scale(1.05);
+}
+
+.venue img {
+    width: 100%;
+    height: auto;
+}
+</style>
+
+</head>
+<body>
+
+    <header>
+        <h1>Choose Wedding Venue</h1>
+    </header>
+
+    <section id="venueTab" class="tab active">
+
+        <!-- Add the form to submit venue details -->
+        <form id="venueForm" action="venues.php" method="GET" style="display: none;">
+            <input type="hidden" id="selectedVenue" name="venue" value="">
+            <input type="hidden" id="selectedCost" name="cost" value="">
+            <input type="hidden" id="selectedImage" name="image" value="">
+        </form>
+        <div class="venue" onclick="selectVenue('Venue A', 50000, 'photos/venuea.jpg')">
+            <img src="photos/venuea.jpeg" alt="Venue A">
+            <h3>Venue A</h3>
+            <p>$50000</p>
+        </div>
+        <div class="venue" onclick="selectVenue('Venue B', 70000, 'photos/venueb.jpg')">
+            <img src="photos/venuebb.jpeg" alt="Venue B">
+            <h3>Venue B</h3>
+            <p>$70000</p>
+        </div>
+        <div class="venue" onclick="selectVenue('Venue C', 50000, 'photos/venuec.jpg')">
+            <img src="photos/venuec.jpeg" alt="Venue C">
+            <h3>Venue C</h3>
+            <p>$50000</p>
+        </div>
+
+        <div class="venue" onclick="selectVenue('Venue D', 70000, 'photos/venued.jpg')">
+            <img src="photos/venued.jpeg" alt="Venue D">
+            <h3>Venue D</h3>
+            <p>$70000</p>
+        </div>
+        <div class="venue" onclick="selectVenue('Venue E', 50000, 'photos/venuee.jpg')">
+            <img src="photos/venuee.jpeg" alt="Venue E">
+            <h3>Venue E</h3>
+            <p>$50000</p>
+        </div>
+
+        <div class="venue" onclick="selectVenue('Venue F', 70000, 'photos/venuef.jpg')">
+            <img src="photos/venuef.jpeg" alt="Venue F">
+            <h3>Venue F</h3>
+            <p>$70000</p>
+        </div>
+        
+    </section>
+
+    <script>
+        function selectVenue(venue, cost, imagePath) {
+            // Set the selected venue, cost, and image path values in the form
+            document.getElementById('selectedVenue').value = venue;
+            document.getElementById('selectedCost').value = cost;
+            document.getElementById('selectedImage').value = imagePath;
+
+            // Submit the form to redirect to food.php
+            document.getElementById('venueForm').submit();
+        }
+    </script>
+</body>
+</html>
